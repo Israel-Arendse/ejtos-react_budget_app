@@ -4,7 +4,7 @@ import { AppContext } from '../context/AppContext';
 import './ExpenseItem.css'; // Import CSS file for Expense component
 
 const ExpenseItem = (props) => {
-    const { dispatch } = useContext(AppContext);
+    const { dispatch, currency } = useContext(AppContext);
 
     const handleDeleteExpense = () => {
         dispatch({
@@ -28,8 +28,8 @@ const ExpenseItem = (props) => {
 
     const decreaseAllocation = (name) => {
         const expense = {
-            name:name,
-            cost:-10, // Decrease the cost by 10
+            name: name,
+            cost: -10, // Decrease the cost by 10
         };
         dispatch({
             type: 'ADD_EXPENSE',
@@ -40,7 +40,7 @@ const ExpenseItem = (props) => {
     return (
         <tr>
             <td>{props.name}</td>
-            <td>£{props.cost}</td>
+            <td>{currency}{props.cost}</td>
             <td><button className="plus-button" onClick={() => increaseAllocation(props.name)}>+</button></td>
             <td><button className="minus-button" onClick={() => decreaseAllocation(props.name)}>-</button></td>
             <td><TiDelete size='1.5em' onClick={handleDeleteExpense} /></td>

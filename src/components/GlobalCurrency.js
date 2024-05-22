@@ -1,6 +1,7 @@
 // GlobalCurrency.js
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
+import './GlobalCurrencyDropdown.css';
 
 const GlobalCurrency = () => {
     const { dispatch } = useContext(AppContext);

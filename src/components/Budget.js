@@ -26,7 +26,7 @@ const Budget = () => {
 
     return (
         <div className='alert alert-secondary d-flex align-items-center'>
-            <div className='me-2'>Budget:{currencyPrefix}</div> {/* Render prefix dynamically */}
+            <div className='me-2'>Budget: {currencyPrefix}</div> {/* Render prefix dynamically */}
             <input
                 type="number"
                 step="10"

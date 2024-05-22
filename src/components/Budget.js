@@ -1,11 +1,12 @@
-// Budget.js
-import React, { useContext, useState } from 'react';
+//Budget
+import React, { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../context/AppContext';
 
-const Budget = ({ currency }) => { // Receive currency as a prop
-    const { budget } = useContext(AppContext);
+const Budget = () => {
+    const { budget, currency } = useContext(AppContext);
     const [newBudget, setNewBudget] = useState(budget);
     const [error, setError] = useState('');
+    const [currencyPrefix, setCurrencyPrefix] = useState(currency);
 
     const handleBudgetChange = (event) => {
         const inputValue = parseFloat(event.target.value);
@@ -19,9 +20,13 @@ const Budget = ({ currency }) => { // Receive currency as a prop
         }
     };
 
+    useEffect(() => {
+        setCurrencyPrefix(currency);
+    }, [currency]);
+
     return (
         <div className='alert alert-secondary d-flex align-items-center'>
-            <div className='me-2'>Budget: {currency}</div> {/* Render prefix dynamically */}
+            <div className='me-2'>Budget:{currencyPrefix}</div> {/* Render prefix dynamically */}
             <input
                 type="number"
                 step="10"

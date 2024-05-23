@@ -11,34 +11,21 @@ const Budget = () => {
 
     const handleBudgetChange = (event) => {
         const inputValue = parseFloat(event.target.value);
-        const totalAllocatedCost = calculateTotalExpenses(expenses); // Assuming expenses are available in the context
+        const totalAllocatedCost = calculateTotalExpenses(expenses);
     
         if (!isNaN(inputValue)) {
             if (inputValue <= 20000) {
                 if (inputValue >= totalAllocatedCost) {
-                    // Update the budget value if it's within the limit and not less than total allocated cost
                     setNewBudget(inputValue);
                     setError(''); // Clear any previous error
                 } else {
-                    // Show an alert informing the user that budget cannot be reduced below the total allocated cost
-                    alert('The budget cannot be reduced below the total allocated cost.');
-    
-                    // Reset the input field to the current budget value
-                    setNewBudget(budget);
+                    setError('The budget cannot be reduced below the total allocated cost.');
                 }
             } else {
-                // Show an alert informing the user that the budget must not exceed the maximum limit of 20,000
-                alert('The budget must not exceed the maximum limit of 20,000.');
-    
-                // Reset the input field to the current budget value
-                setNewBudget(budget);
+                setError('The budget must not exceed the maximum limit of 20,000.');
             }
         } else {
-            // Show an alert informing the user that the entered value is not a valid number
-            alert('Please enter a valid number for the budget.');
-    
-            // Reset the input field to the current budget value
-            setNewBudget(budget);
+            setError('Please enter a valid number for the budget.');
         }
     };
 

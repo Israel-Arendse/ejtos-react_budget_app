@@ -16,7 +16,7 @@ const Budget = () => {
             setError(''); // Clear any previous error
         } else {
             // Show an alert here (you can customize the styling)
-            alert('Budget must be less than or equal to 20,000');
+            alert('The budget must be 20,000 or less');
         }
     };
 

@@ -16,7 +16,7 @@ const Budget = () => {
             setError(''); // Clear any previous error
         } else {
             // Show an alert here (you can customize the styling)
-            alert('The budget cannot exceed the max limit 20,000');
+            alert('The budget must not exceed the maximum limit of 20,000');
         }
     };
 
